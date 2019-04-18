@@ -4,7 +4,7 @@ import { MainComponent } from './main.component';
 
 const routes: Routes = [
   {
-    path: 'mian',
+    path: 'main',
     component: MainComponent,
     children: [
       {
@@ -36,22 +36,22 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/mian/hot-showing',
+        redirectTo: '/main/hot-showing',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/mian/hot-showing',
+    redirectTo: '/main/hot-showing',
     pathMatch: 'full'
   }
 ];
 
 @NgModule({
-  declarations: [],
   imports: [
     RouterModule.forChild(routes)
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class MainRouterModule { }

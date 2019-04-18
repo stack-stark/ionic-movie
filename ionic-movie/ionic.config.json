@@ -1,5 +1,11 @@
 {
   "name": "ionic-movie",
   "integrations": {},
-  "type": "angular"
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://douban.uieee.com"
+    }
+  ]
 }

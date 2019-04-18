@@ -1,10 +1,16 @@
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
+import { HotShowingComponent } from './hot-showing.component';
 @NgModule({
-  declarations: [],
+  declarations: [HotShowingComponent],
   imports: [
-    CommonModule
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild([{ path: '', component: HotShowingComponent }])
   ]
 })
 export class HotShowingModule { }
