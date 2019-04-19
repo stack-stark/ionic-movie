@@ -21,5 +21,11 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() { }
 
+  public searchInput(event) {
+    console.log(event);
+  }
 
+  public inputCancel(event) {
+    console.log(event);
+  }
 }

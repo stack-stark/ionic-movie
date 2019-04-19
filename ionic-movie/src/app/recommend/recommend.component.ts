@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonInfiniteScroll } from '@ionic/angular';
+import { IonInfiniteScroll, LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-recommend',
@@ -10,7 +10,8 @@ export class RecommendComponent implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private loadingController: LoadingController
   ) { }
 
   public topData: any = [];
@@ -19,6 +20,7 @@ export class RecommendComponent implements OnInit {
   // public bubbles: boolean;
 
   ngOnInit() {
+    this.presentLoading();
     this.getInitData(this.start, this.count);
   }
 
@@ -58,5 +60,15 @@ export class RecommendComponent implements OnInit {
 
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+  }
+
+  /**
+   * 加载动画
+   */
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      duration: 1000
+    });
+    return await loading.present();
   }
 }

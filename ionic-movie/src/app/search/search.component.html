@@ -7,16 +7,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar></ion-searchbar>
-
+  <ion-searchbar (ionInput)="searchInput($event)" (ionClear)="inputCancel($event)"></ion-searchbar>
+  <!-- ionic4 slides轮播图不自动轮播解决方案 http://www.ionic.wang/article-index-id-152.html-->
   <ion-slides pager="true" [options]="slideOpts" class="search-slides">
     <ion-slide class="slide">
       <h1>Slide 1</h1>
     </ion-slide>
-    <ion-slide>
+    <ion-slide class="slide">
       <h1>Slide 2</h1>
     </ion-slide>
-    <ion-slide>
+    <ion-slide class="slide">
       <h1>Slide 3</h1>
     </ion-slide>
   </ion-slides>
