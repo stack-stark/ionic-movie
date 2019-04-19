@@ -14,7 +14,7 @@ export class HotShowingComponent implements OnInit {
   public hotData: any;
 
   ngOnInit() {
-    this.getInitData(0, 10);
+    this.getInitData(0, 20);
   }
 
   /**

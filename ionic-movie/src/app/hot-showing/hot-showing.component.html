@@ -18,7 +18,7 @@
               <span class="list-name-score">{{item.rating.average}}</span>
             </div>
             <div class="list-type">类型:<span *ngFor="let sp of item['genres']" class="sp-type">{{sp}}</span> </div>
-            <div class="list-type">导演:<span *ngFor="let na of item['directors']" class="sp-casts">{{na.name}}</span></div>
+            <div class="list-casts"><span style="color:black">导演:</span><span *ngFor="let na of item['directors']" class="sp-casts">{{na.name}}</span></div>
             <div class="list-casts"><span style="color:black">主演:</span><span *ngFor="let na of item['casts']" class="sp-casts">{{na.name}}</span></div>
             <div class="list-type">年份:<span class="sp-casts">{{item.year}}</span></div>
           </div>
