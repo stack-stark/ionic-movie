@@ -1,3 +1,7 @@
+.movie-box{
+    height: 52vh;
+    overflow-y: auto;
+}
 .mov-list {
     display: flex;
     width: 100vw;
@@ -9,7 +13,6 @@
     width: 40vw;
     height: 100%;
     text-align: center;
-    // border: 1px solid salmon;
 }
 
 .mov-list-left img {
@@ -90,9 +93,14 @@
 
 .search-slides {
     width: 90vw;
-    height: 30vh;
+    height: 20vh;
+    margin-top: 1rem;
 }
 
 .slide {
     border: 1px sandybrown solid;
+}
+
+.sera{
+    display: flex;
 }
