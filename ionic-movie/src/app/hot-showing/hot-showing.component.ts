@@ -24,9 +24,10 @@ export class HotShowingComponent implements OnInit {
    * @param city
    */
   private getInitData(start: number, count: number) {
-    const url = `/api/v2/movie/in_theaters?start=${start}&count=${count}`;
+    const url = `/movie/in_theaters?start=${start}&count=${count}`;
     this.http.get(url).subscribe((res: any) => {
       console.log(res);
+      this.hotData = res.subjects;
     });
   }
 

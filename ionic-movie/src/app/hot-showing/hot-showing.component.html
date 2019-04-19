@@ -7,20 +7,24 @@
 </ion-header>
 
 <ion-content>
-  <div class="mov-list">
-    <div class="mov-list-left">
-      <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.jpg" referrerpolicy ="never" alt="" srcset="">
-    </div>
-    <div class="mov-list-right">
-      <div class="list-name">
-        <span class="list-name-sp">追捕</span>
-        <span class="list-name-score">7.5</span>
-      </div>
-      <div class="list-type">类型:</div>
-      <div class="list-type">导演:</div>
-      <div class="list-type">演员:</div>
-      <div class="list-type">年份:</div>
-    </div>
-  </div>  
+  <ng-container *ngFor="let item of hotData">
+      <div class="mov-list">
+          <div class="mov-list-left">
+            <img src="{{item.images.large}}" referrerpolicy ="never" alt="" srcset="">
+          </div>
+          <div class="mov-list-right">
+            <div class="list-name">
+              <span class="list-name-sp">{{item.title}}</span>
+              <span class="list-name-score">{{item.rating.average}}</span>
+            </div>
+            <div class="list-type">类型:<span *ngFor="let sp of item['genres']" class="sp-type">{{sp}}</span> </div>
+            <div class="list-type">导演:<span *ngFor="let na of item['directors']" class="sp-casts">{{na.name}}</span></div>
+            <div class="list-casts"><span style="color:black">主演:</span><span *ngFor="let na of item['casts']" class="sp-casts">{{na.name}}</span></div>
+            <div class="list-type">年份:<span class="sp-casts">{{item.year}}</span></div>
+          </div>
+        </div> 
+  </ng-container>
+  
+   
  
 </ion-content>
