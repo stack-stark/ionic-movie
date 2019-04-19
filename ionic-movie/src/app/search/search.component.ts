@@ -9,6 +9,17 @@ export class SearchComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  public searchData: Array<any> = [];
+  public slideOpts: object = {
+    effect: 'flip',
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 2000
+    }
+  };
+
+  ngOnInit() { }
+
 
 }

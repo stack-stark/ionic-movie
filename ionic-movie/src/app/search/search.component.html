@@ -1,3 +1,53 @@
-<p>
-  search works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      搜索
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar></ion-searchbar>
+
+  <ion-slides pager="true" [options]="slideOpts" class="search-slides">
+    <ion-slide class="slide">
+      <h1>Slide 1</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 2</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+    </ion-slide>
+  </ion-slides>
+
+
+  <ng-container *ngIf="searchData.length > 0">
+    <div class="mov-list" *ngFor="let item of searchData">
+      <div class="mov-list-left">
+        <img src="{{item.images.large}}" referrerpolicy="never" alt="" srcset="">
+      </div>
+      <div class="mov-list-right">
+        <div class="list-name">
+          <span class="list-name-sp">{{item.title}}</span>
+          <span class="list-name-score">{{item.rating.average}}</span>
+        </div>
+        <div class="list-type">类型:<span *ngFor="let sp of item['genres']" class="sp-type">{{sp}}</span> </div>
+        <!-- <div class="list-type">导演:<span *ngFor="let na of item['directors']" class="sp-casts">{{na.name}}</span></div> -->
+        <div class="list-casts"><span style="color:black">导演:</span><span *ngFor="let na of item['directors']"
+            class="sp-casts">{{na.name}}</span></div>
+        <div class="list-casts"><span style="color:black">主演:</span><span *ngFor="let na of item['casts']"
+            class="sp-casts">{{na.name}}</span></div>
+        <div class="list-type">年份:<span class="sp-casts">{{item.year}}</span></div>
+      </div>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="数据加载中...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ng-container>
+
+  <ng-container *ngIf="searchData.length == 0">
+    开始搜索
+  </ng-container>
+</ion-content>
