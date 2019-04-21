@@ -15,7 +15,8 @@ export class DetailComponent implements OnInit {
     private activeRoute: ActivatedRoute
   ) { }
 
-  public detail: any;
+  public detail: Array<any> = [];
+  public CastsArr: Array<string> = [];
 
   ngOnInit() {
     this.activeRoute.queryParams.subscribe((params: Params) => {
@@ -34,8 +35,26 @@ export class DetailComponent implements OnInit {
   private getMovieDetail(id: string) {
     const url = `/movie/subject/${id}`;
     this.http.get(url).subscribe((res: any) => {
-      console.log(res);
-      this.detail = res;
+      if (res) {
+        this.detail = res;
+        for (const ca of res.casts) {
+          this.getCasts(ca.id);
+        }
+      }
+    });
+  }
+
+  /**
+   * 获取演员数据
+   * @param id 
+   */
+  private getCasts(id: string) {
+    const url = `/movie/celebrity/${id}?apikey=0df993c66c0c636e29ecbb5344252a4a`;
+    this.http.get(url).subscribe((res: any) => {
+      if (res) {
+        this.CastsArr.push(res);
+      }
+      console.warn(this.CastsArr);
     });
   }
 

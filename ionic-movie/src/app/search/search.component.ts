@@ -98,4 +98,5 @@ export class SearchComponent implements OnInit {
   public toDetail(id: string) {
     this.router.navigateByUrl('/movie-detail/detail?id=' + id);
   }
+
 }

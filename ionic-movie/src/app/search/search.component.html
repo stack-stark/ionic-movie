@@ -27,7 +27,7 @@
   </div>
 
   <div class="movie-box" *ngIf="searchData.length > 0" >
-    <div class="mov-list" *ngFor="let item of searchData">
+    <div class="mov-list" *ngFor="let item of searchData"  (click)="toDetail(item.id)">
       <div class="mov-list-left">
         <img src="{{item.images.large}}" referrerpolicy="never" alt="" srcset="">
       </div>

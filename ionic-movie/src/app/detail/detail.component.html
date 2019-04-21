@@ -7,20 +7,51 @@
 </ion-header>
 
 <ion-content>
-      <div class="mov-list">
-          <div class="mov-list-left">
-            <img src="{{detail.images.large}}" referrerpolicy ="never" alt="" srcset="">
+  <div class="mov-list">
+    <div class="mov-list-left">
+      <img src="{{detail['images']['large']}}" referrerpolicy="never" alt="" srcset="">
+    </div>
+    <div class="mov-list-right">
+      <div class="list-name">
+        <span class="list-name-sp">{{detail['title']}}</span>
+        <span class="list-name-score">{{detail['rating']['average']}}</span>
+      </div>
+      <div class="list-type">类型:<span *ngFor="let sp of detail['genres']" class="sp-type">{{sp}}</span> </div>
+      <div class="list-casts"><span style="color:black">导演:</span><span *ngFor="let na of detail['directors']"
+          class="sp-casts">{{na.name}}</span></div>
+          <div class="list-casts"><span style="color:black">别名:</span>
+            <span class="sp-casts">{{detail['original_title']}}</span></div>
+      <div class="list-type">年份:<span class="sp-casts">{{detail['year']}}</span></div>
+    </div>
+  </div>
+
+  <ion-card>
+    <div class="sum-title">内容简介</div>
+    <ion-card-content>
+      {{detail['summary']}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <div class="sum-title">主演介绍</div>
+    <ion-card-content>
+      <div class="cat" *ngFor="let cat of CastsArr">
+        <div class="cat-left">
+            <img src="{{cat['avatars']['large']}}" referrerpolicy="never" alt="" srcset="">
+        </div>
+        <div class="cat-right">
+          <div class="cat-name">
+            <span class="list-name-sp">{{cat['name']}}</span>
           </div>
-          <div class="mov-list-right">
-            <div class="list-name">
-              <span class="list-name-sp">{{detail.title}}</span>
-              <span class="list-name-score">{{detail.rating.average}}</span>
-            </div>
-            <div class="list-type">类型:<span *ngFor="let sp of detail['genres']" class="sp-type">{{sp}}</span> </div>
-            <div class="list-casts"><span style="color:black">导演:</span><span *ngFor="let na of detail['directors']" class="sp-casts">{{na.name}}</span></div>
-            <div class="list-casts"><span style="color:black">主演:</span><span *ngFor="let na of detail['casts']" class="sp-casts">{{na.name}}</span></div>
-            <div class="list-type">年份:<span class="sp-casts">{{detail.year}}</span></div>
-          </div>
-        </div> 
-  
+          <div class="list-type">性别:<span class="sp-casts">{{cat['gender']}}</span> </div>
+          <div class="list-type">生日:<span class="sp-casts">{{cat['birthday']}}</span> </div>
+          <!-- <div class="list-type">出生地:<span class="sp-casts">{{cat['born_place']}}</span> </div> -->
+          <div class="list-casts"><span style="color:black">出生地:</span>
+            <span class="sp-casts">{{cat['born_place']}}</span></div>
+          <div class="list-type">星座:<span class="sp-casts">{{cat['constellation']}}</span> </div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
