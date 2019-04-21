@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-hot-showing',
   templateUrl: './hot-showing.component.html',
@@ -10,7 +11,8 @@ export class HotShowingComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private router: Router
   ) { }
 
   public hotData: any;
@@ -44,4 +46,10 @@ export class HotShowingComponent implements OnInit {
     return await loading.present();
   }
 
+  /**
+   * toDetail
+   */
+  public toDetail(id: string) {
+    this.router.navigateByUrl('/movie-detail/detail?id=' + id);
+  }
 }

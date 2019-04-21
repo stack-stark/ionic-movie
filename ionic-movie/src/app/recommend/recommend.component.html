@@ -8,7 +8,7 @@
 
 <ion-content>
   <ng-container *ngFor="let item of topData">
-      <div class="mov-list">
+      <div class="mov-list" (click)="toDetail(item.id)">
           <div class="mov-list-left">
             <img src="{{item.images.large}}" referrerpolicy ="never" alt="" srcset="">
           </div>

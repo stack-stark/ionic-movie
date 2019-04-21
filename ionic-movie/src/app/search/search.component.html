@@ -45,15 +45,15 @@
         <div class="list-type">年份:<span class="sp-casts">{{item.year}}</span></div>
       </div>
     </div>
-    <ion-infinite-scroll threshold="50px" (ionInfinite)="loadData($event)">
+    <!-- <ion-infinite-scroll threshold="50px" (ionInfinite)="loadData($event)">
       <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="数据加载中...">
       </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+    </ion-infinite-scroll> -->
   </div>
 
   <ng-container *ngIf="searchData.length == 0">
     <div class="movie-box">
-      ss搜索
+      <span class="search-tip">开始搜索</span>
     </div>
   </ng-container>
 </ion-content>

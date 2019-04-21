@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonInfiniteScroll, LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-recommend',
   templateUrl: './recommend.component.html',
@@ -11,7 +12,8 @@ export class RecommendComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private router: Router
   ) { }
 
   public topData: any = [];
@@ -70,5 +72,12 @@ export class RecommendComponent implements OnInit {
       duration: 1000
     });
     return await loading.present();
+  }
+
+   /**
+   * toDetail
+   */
+  public toDetail(id: string) {
+    this.router.navigateByUrl('/movie-detail/detail?id=' + id);
   }
 }
