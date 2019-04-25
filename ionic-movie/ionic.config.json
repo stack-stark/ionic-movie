@@ -1,5 +1,7 @@
 {
   "name": "ionic-movie",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

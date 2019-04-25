@@ -28,8 +28,11 @@ export class SearchComponent implements OnInit {
   private start = 0;
   private count = 10;
   private queryCount: number;
+  public images: Array<string> = [
+    ''
+  ];
   ngOnInit() {
-    
+
    }
 
   /**
@@ -43,9 +46,9 @@ export class SearchComponent implements OnInit {
 
   /**
    * 搜索请求
-   * @param query 
-   * @param start 
-   * @param count 
+   * @param query
+   * @param start
+   * @param count
    */
   private getSearchData(query: string, start: number, count: number) {
     const url = `/movie/search?q=${query}&start=${start}&count=${count}`;
