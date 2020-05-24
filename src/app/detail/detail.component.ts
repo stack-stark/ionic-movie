@@ -20,7 +20,6 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.queryParams.subscribe((params: Params) => {
-      console.warn(params);
       if (params.id) {
         this.presentLoading();
         this.getMovieDetail(params.id);
@@ -33,7 +32,7 @@ export class DetailComponent implements OnInit {
    * @param id
    */
   private getMovieDetail(id: string) {
-    const url = `/movie/subject/${id}`;
+    const url = `https://douban.uieee.com/v2/movie/subject/${id}`;
     this.http.get(url).subscribe((res: any) => {
       if (res) {
         this.detail = res;
@@ -49,12 +48,11 @@ export class DetailComponent implements OnInit {
    * @param id 
    */
   private getCasts(id: string) {
-    const url = `/movie/celebrity/${id}?apikey=0df993c66c0c636e29ecbb5344252a4a`;
+    const url = `https://douban.uieee.com/v2/movie/celebrity/${id}?apikey=0df993c66c0c636e29ecbb5344252a4a`;
     this.http.get(url).subscribe((res: any) => {
       if (res) {
         this.CastsArr.push(res);
       }
-      console.warn(this.CastsArr);
     });
   }
 
@@ -63,7 +61,7 @@ export class DetailComponent implements OnInit {
   */
   async presentLoading() {
     const loading = await this.loadingController.create({
-      duration: 1000
+      duration: 2000
     });
     return await loading.present();
   }

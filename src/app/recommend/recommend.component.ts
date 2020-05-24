@@ -33,7 +33,7 @@ export class RecommendComponent implements OnInit {
    * @param city
    */
   private getInitData(start: number, count: number) {
-    const url = `/movie/top250?start=${start}&count=${count}`;
+    const url = `https://douban.uieee.com/v2/movie/top250?start=${start}&count=${count}`;
     this.http.get(url).subscribe((res: any) => {
       if (this.topData.length === 0) {
         this.topData = res.subjects;

@@ -1,7 +1,7 @@
 .mov-list{
     display: flex;
     width: 100vw;
-    height: 10rem;
+    // height: 10rem;
     margin-top: 1rem;
 }
 .mov-list-left{
@@ -91,21 +91,24 @@
 
 .cat{
     display: flex;
+    width: 100%;
 }
 
 .cat-left{
-    width: 35vw;
+    width: 35%;
     height: 10rem; 
 }
 .cat-left img{
    border-radius: 4px;
+   width: 100%;
+   height: 90%;
 }
 .detail-cat-slides{
-    width: 35vw;
+    width: 35%;
     height: 10rem;
 }
 .cat-right{
-    width: 65vw;
+    width: 65%;
     height: 10rem; 
 }
 .cat-name{

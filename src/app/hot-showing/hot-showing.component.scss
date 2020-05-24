@@ -4,6 +4,9 @@
     height: 10rem;
     margin-top: 1rem;
 }
+.mov-list:last-child{
+    margin-bottom: 15px;
+}
 .mov-list-left{
     width: 40vw;
     height: 100%;
@@ -31,6 +34,9 @@
     font-size: 18px;
     font-weight: bold;
     color: #ff6003b0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .list-name-score{
     margin-right: 15px;

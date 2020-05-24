@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { HotShowingService } from './hot-showing.service';
 @Component({
   selector: 'app-hot-showing',
   templateUrl: './hot-showing.component.html',
   styleUrls: ['./hot-showing.component.scss'],
+  providers: [HotShowingService]
 })
 export class HotShowingComponent implements OnInit {
 
   constructor(
-    private http: HttpClient,
     private loadingController: LoadingController,
-    private router: Router
+    private router: Router,
+    private service: HotShowingService
   ) { }
 
   public hotData: any;
@@ -29,8 +30,7 @@ export class HotShowingComponent implements OnInit {
    * @param city
    */
   private getInitData(start: number, count: number) {
-    const url = `/movie/in_theaters?start=${start}&count=${count}`;
-    this.http.get(url).subscribe((res: any) => {
+    this.service.getInitData(start, count).subscribe((res: any) => {
       console.log(res);
       this.hotData = res.subjects;
     });

@@ -3,24 +3,28 @@
     <ion-title>
       电影详情
     </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button>
+      </ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="mov-list">
     <div class="mov-list-left">
-      <img src="{{detail['images']['large']}}" referrerpolicy="never" alt="" srcset="">
+      <img src="{{detail['images']?detail['images']['large']:''}}" referrerpolicy="never" alt="" srcset="">
     </div>
     <div class="mov-list-right">
       <div class="list-name">
         <span class="list-name-sp">{{detail['title']}}</span>
-        <span class="list-name-score">{{detail['rating']['average']}}</span>
       </div>
+      <div class="list-type">评分:<span class="list-name-score">{{detail['rating']?detail['rating']['average']:''}}</span></div>
       <div class="list-type">类型:<span *ngFor="let sp of detail['genres']" class="sp-type">{{sp}}</span> </div>
       <div class="list-casts"><span style="color:black">导演:</span><span *ngFor="let na of detail['directors']"
           class="sp-casts">{{na.name}}</span></div>
-          <div class="list-casts"><span style="color:black">别名:</span>
-            <span class="sp-casts">{{detail['original_title']}}</span></div>
+      <div class="list-casts"><span style="color:black">别名:</span>
+        <span class="sp-casts">{{detail['original_title']}}</span></div>
       <div class="list-type">年份:<span class="sp-casts">{{detail['year']}}</span></div>
     </div>
   </div>
@@ -37,7 +41,7 @@
     <ion-card-content>
       <div class="cat" *ngFor="let cat of CastsArr">
         <div class="cat-left">
-            <img src="{{cat['avatars']['large']}}" referrerpolicy="never" alt="" srcset="">
+          <img src="{{cat['avatars']?cat['avatars']['large']:''}}" referrerpolicy="never" alt="" srcset="">
         </div>
         <div class="cat-right">
           <div class="cat-name">
